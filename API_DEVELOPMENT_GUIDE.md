@@ -40,11 +40,17 @@ local-api-server/
 ├── models.py                  # 데이터 모델 정의
 ├── database.py                # 인메모리 데이터베이스
 ├── api_server_modular.py      # 메인 애플리케이션
-└── routers/                   # API 라우터 모듈
+├── routers/                   # API 라우터 모듈
+│   ├── __init__.py
+│   ├── users.py               # 사용자 API
+│   ├── tasks.py               # 작업 API
+│   ├── system.py              # 시스템 API
+│   └── news.py                # 뉴스 API
+└── services/                  # 비즈니스 로직 서비스
     ├── __init__.py
-    ├── users.py               # 사용자 API
-    ├── tasks.py               # 작업 API
-    └── system.py              # 시스템 API
+    ├── news_fetcher.py        # 뉴스 수집
+    ├── news_processor.py      # 뉴스 처리
+    └── news_summarizer.py     # 뉴스 요약
 ```
 
 ### 각 파일의 역할

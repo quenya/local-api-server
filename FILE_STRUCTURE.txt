@@ -5,69 +5,42 @@
 ├── REACT_QUICKSTART.md (React UI 빠른 시작)
 ├── README.md (전체 가이드 & 예제)
 ├── SETUP_GUIDE.md (상세 설정)
+├── MODULAR_STRUCTURE.md (모듈화 구조 설명)
+├── API_DEVELOPMENT_GUIDE.md (새 API 추가 가이드)
 └── FILE_STRUCTURE.txt (이 파일)
 
 🐍 Python 백엔드
-├── api_server.py (FastAPI 메인 서버)
-├── requirements.txt (Python 의존성)
-└── Dockerfile (Docker 배포)
+├── api_server_modular.py (모듈화된 메인 서버)
+├── models.py (데이터 모델)
+├── database.py (인메모리 DB)
+├── requirements.txt (의존성)
+├── routers/ (API 엔드포인트)
+│   ├── users.py
+│   ├── tasks.py
+│   ├── system.py
+│   └── news.py
+└── services/ (비즈니스 로직)
+    ├── news_fetcher.py
+    ├── news_processor.py
+    └── news_summarizer.py
 
 ⚛️ React 프론트엔드
 ├── index.html (HTML 메인)
 ├── package.json (npm 설정) ⭐
 ├── vite.config.js (Vite 설정) ⭐
-├── tailwind.config.js (Tailwind 설정)
-├── postcss.config.js (PostCSS 설정)
 └── src/
     ├── main.jsx (React 진입점)
     ├── App.jsx (App 컴포넌트)
-    ├── App.css (스타일)
     └── components/
         └── APITester.jsx (API 테스터 UI)
 
 ☕ Java 클라이언트
-└── LocalAPIClient.java (Java에서 API 호출 예제)
-
-추가
-├── api_ui.jsx (구 버전 - 참고용)
-└── .gitignore (Git 설정)
+└── LocalAPIClient.java (Java 예제)
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-🚀 빠른 시작 (5분)
+🚀 빠른 시작
+1. Python 서버: python api_server_modular.py
+2. React UI: npm start (또는 npm run dev)
 
-1단계: Python 서버 시작
-$ python api_server.py
-
-2단계: 새 터미널에서 npm 설치 & 실행
-$ cd /Volumes/Elements/project/python/local-api-server
-$ npm install
-$ npm start
-
-3단계: 브라우저 열림
-http://localhost:3000
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-⭐ 중요 파일 (필수)
-- package.json
-- vite.config.js
-- index.html
-- src/main.jsx
-- src/App.jsx
-- src/components/APITester.jsx
-
-이 6개 파일이 있으면 npm start 가능!
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-📖 가이드 선택
-
-npm install 에러? → QUICK_FIX.md 읽기
-React 관련? → REACT_QUICKSTART.md 읽기
-전체 가이드? → README.md 읽기
-상세 설정? → SETUP_GUIDE.md 읽기
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-✅ 모든 파일이 /mnt/user-data/outputs에 있습니다!
+✅ 자세한 구조는 MODULAR_STRUCTURE.md를 참고하세요.

@@ -15,7 +15,14 @@ local-api-server/
 │   ├── __init__.py                    # 패키지 초기화
 │   ├── users.py                       # 사용자 API
 │   ├── tasks.py                       # 작업 API
-│   └── system.py                      # 시스템 API
+│   ├── system.py                      # 시스템 API
+│   └── news.py                        # 뉴스 API
+│
+├── 📁 services/                        # [신규] 비즈니스 로직 서비스
+│   ├── __init__.py                    # 패키지 초기화
+│   ├── news_fetcher.py                # 뉴스 수집 로직
+│   ├── news_processor.py              # 뉴스 처리 및 중복 제거
+│   └── news_summarizer.py             # 뉴스 요약 및 포맷팅
 │
 ├── 📄 requirements.txt                 # Python 의존성
 ├── 📄 Dockerfile                       # Docker 설정
@@ -59,6 +66,15 @@ local-api-server/
 | `routers/users.py` | `/api/users/*` | 사용자 CRUD |
 | `routers/tasks.py` | `/api/tasks/*` | 작업 CRUD |
 | `routers/system.py` | `/health` | 헬스체크 |
+| `routers/news.py` | `/api/news/*` | 뉴스 검색 및 요약 |
+
+### 서비스 모듈 (Business Logic)
+
+| 파일 | 설명 | 주요 기능 |
+|------|------|----------|
+| `services/news_fetcher.py` | 뉴스 수집 | RSS 및 네이버 크롤링 |
+| `services/news_processor.py` | 뉴스 처리 | 중복 제거 및 점수 계산 |
+| `services/news_summarizer.py` | 뉴스 요약 | 요약 및 마크다운 변환 |
 
 ### 문서
 
@@ -163,7 +179,13 @@ database.py (15 lines)
 routers/
 ├── users.py (70 lines)
 ├── tasks.py (50 lines)
-└── system.py (15 lines)
+├── system.py (15 lines)
+└── news.py (50 lines)
+
+services/
+├── news_fetcher.py (100 lines)
+├── news_processor.py (60 lines)
+└── news_summarizer.py (40 lines)
 ```
 
 **결과**: 더 작고 관리하기 쉬운 파일들

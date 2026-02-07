@@ -4,7 +4,7 @@ FastAPI 메인 애플리케이션
 """
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from routers import users, tasks, system
+from routers import users, tasks, system, news
 
 # FastAPI 앱 생성
 app = FastAPI(
@@ -26,6 +26,7 @@ app.add_middleware(
 app.include_router(users.router)
 app.include_router(tasks.router)
 app.include_router(system.router)
+app.include_router(news.router)
 
 
 if __name__ == "__main__":
