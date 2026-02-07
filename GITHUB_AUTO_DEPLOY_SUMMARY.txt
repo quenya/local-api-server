@@ -1,0 +1,126 @@
+🚀 GitHub 자동 배포 시스템 - 완전 패키지
+
+📦 생성된 파일:
+
+1️⃣  webhook_server.py (520줄)
+   - GitHub Webhook 수신 & 자동 배포 엔진
+   - Git pull, 서버 재시작 자동화
+   - 배포 로그 기록
+   - 상태 모니터링
+
+2️⃣  setup_github_webhook.sh (180줄)
+   - 자동 설정 스크립트
+   - Secret 생성 및 .env.webhook 설정
+   - 의존성 자동 설치
+   - 한 번의 명령으로 완료
+
+3️⃣  .env.webhook (예제)
+   - GitHub Secret 저장
+   - 로컬 경로 설정
+   - Webhook 포트 설정
+
+4️⃣  GITHUB_AUTO_DEPLOY.md (완전 가이드, 300줄)
+   - 상세한 단계별 설정
+   - GitHub Webhook 설정 방법
+   - 백그라운드 실행 (launchd)
+   - 트러블슈팅
+   - 보안 설정
+
+5️⃣  GITHUB_AUTO_DEPLOY_QUICK.md (빠른 가이드, 150줄)
+   - 5분 빠른 시작
+   - 테스트 방법
+   - 트러블슈팅 요약
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✨ 자동 배포 플로우:
+
+GitHub Push
+    ↓
+Webhook 트리거
+    ↓
+webhook_server.py 수신
+    ↓
+Git pull 실행
+    ↓
+의존성 업데이트
+    ↓
+API 서버 종료
+    ↓
+API 서버 재시작
+    ↓
+배포 완료 (자동 로깅)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🚀 5분 시작:
+
+1. bash setup_github_webhook.sh
+2. GitHub Settings → Webhooks → Add webhook
+3. python webhook_server.py
+4. GitHub에 push
+5. tail -f deployment.log
+
+완료! 🎉
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📋 주요 기능:
+
+✅ GitHub Push 감지
+✅ 자동 git pull
+✅ 의존성 자동 업데이트 (requirements.txt)
+✅ API 서버 자동 재시작
+✅ 배포 로그 기록
+✅ 상태 모니터링 API
+✅ GitHub Webhook 서명 검증 (보안)
+✅ 에러 처리 & 자동 복구
+✅ PID 관리
+✅ 포트 자동 해제
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🔐 보안 기능:
+
+✅ GitHub Webhook Secret 검증
+✅ 로컬 네트워크만 접근 허용 (0.0.0.0:5000)
+✅ .env.webhook .gitignore 처리
+✅ 타이밍 공격 방지 (hmac.compare_digest)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📊 모니터링:
+
+- deployment.log: 모든 배포 기록
+- /status API: 실시간 상태 확인
+- GitHub Recent Deliveries: 웹훅 배송 기록
+- ps aux: 프로세스 확인
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🎓 학습 가치:
+
+- GitHub Webhooks 실제 구현
+- Flask로 웹훅 서버 만들기
+- 프로세스 관리 (시작/종료)
+- Git 자동화
+- HMAC 기반 보안
+- 로깅 및 모니터링
+- Bash 스크립팅
+- macOS launchd 설정
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+⚙️ 다음 단계:
+
+1. Slack 알림 추가
+2. 이메일 배포 리포트
+3. 특정 브랜치만 배포
+4. 배포 전 테스트 실행
+5. 자동 백업
+6. 롤백 기능
+7. 다중 환경 지원
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+모든 파일이 /mnt/user-data/outputs에 있습니다!
